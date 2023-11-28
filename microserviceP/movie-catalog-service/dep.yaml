@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-catalog-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: movie-catalog-service
+  template:
+    metadata:
+      labels:
+        app: movie-catalog-service
+    spec:
+      containers:
+      - name: movie-catalog-container
+        image: 190829213181.dkr.ecr.us-east-1.amazonaws.com/moviecatalogsystem@sha256:c2214f3967cb78537f1d0d599fcf0ccf68d591e1bc20e9426cf6534fbf871037
+        ports:
+        - containerPort: 8081
